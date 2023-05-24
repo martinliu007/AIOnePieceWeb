@@ -1,10 +1,14 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
-    <breadcrumb class="breadcrumb-container" />
+    <div class="hamburger-container">
+      <div class="log-text" style="cursor: pointer" >
 
+      <span @click="jumpToHome">AI 应用航海</span>
+      </div>
+    </div>
     <div class="right-menu">
+
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -48,7 +52,11 @@ export default {
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    jumpToHome(){
+      this.$router.push("/home")
     }
+
   }
 }
 </script>
@@ -72,8 +80,13 @@ export default {
     &:hover {
       background: rgba(0, 0, 0, .025)
     }
+
+
   }
 
+  .log-text{
+    margin: 0 0 0 10px;
+  }
   .breadcrumb-container {
     float: left;
   }

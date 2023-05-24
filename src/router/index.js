@@ -5,6 +5,7 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
+import Layout2 from '@/layout2'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -31,11 +32,11 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [
-  {
-    path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
-  },
+  // {
+  //   path: '/login',
+  //   component: () => import('@/views/login/index'),
+  //   hidden: true
+  // },
 
   {
     path: '/404',
@@ -43,17 +44,17 @@ export const constantRoutes = [
     hidden: true
   },
 
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
-  },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/dashboard',
+  //   children: [{
+  //     path: 'dashboard',
+  //     name: 'Dashboard',
+  //     component: () => import('@/views/dashboard/index'),
+  //     meta: { title: 'Dashboard', icon: 'dashboard' }
+  //   }]
+  // },
 
   {
     path: '/example',
@@ -159,6 +160,39 @@ export const constantRoutes = [
       }
     ]
   },
+
+  // home
+  {
+    path: '/',
+    component: Layout2,
+    redirect: '/home',
+    children: [{
+      path: 'home',
+      name: 'Home',
+      component: () => import('@/views/home/index'),
+      meta: { title: 'Home', icon: 'home' }
+    }]
+  },
+
+
+  {
+    path: '/ai',
+    component: Layout2,
+    children: [
+      {
+        path: 'draw',
+        component: () => import('@/views/ai/draw.vue'),
+      }
+    ]
+  },
+
+
+  {
+    path: '/login',
+    component: () => import('@/views/login/index'),
+    hidden: true
+  },
+
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

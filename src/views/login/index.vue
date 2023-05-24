@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">AI应用航海</h3>
       </div>
 
       <el-form-item prop="username">
@@ -44,8 +44,11 @@
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
 
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
+        <span style="margin-right:20px;">关注公众号“AI应用航海”，发送“AI绘画”获取账号密码</span>
+      </div>
+
+      <div class="pic-home">
+        <img class="pic-vx" src="@/assets/home_images/vx_code.png" alt="公众号二维码">
       </div>
 
     </el-form>
@@ -187,7 +190,7 @@ $light_gray:#eee;
     position: relative;
     width: 520px;
     max-width: 100%;
-    padding: 160px 35px 0;
+    padding: 60px 35px 0;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -233,5 +236,12 @@ $light_gray:#eee;
     cursor: pointer;
     user-select: none;
   }
+
+  .pic-vx{
+    width: 100%;
+    height: 100%;
+  }
 }
+
+
 </style>
